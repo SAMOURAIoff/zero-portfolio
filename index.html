@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZERO | Gameplay/Tools Programmer – Portfolio</title>
+  <meta name="description" content="Portfolio de développeur jeux vidéo – Gameplay, Outils, Réseau. Unity 6, Unreal Engine 5, C#/C++." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0e1117;--card:#151a23;--ink:#e6edf3;--muted:#9aa6b2;--acc:#8b5cf6;--acc-2:#22c55e;--border:#222838;--danger:#ef4444;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:linear-gradient(180deg,#0b0f15, #0e1117 30%);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:24px}
+    header{position:sticky;top:0;background:rgba(14,17,23,.75);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:50}
+    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
+    .brand .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--acc),#60a5fa)}
+    .nav a.btn{padding:10px 14px;border:1px solid var(--border);border-radius:12px}
+    .nav .cta{background:var(--acc);border-color:transparent;color:#0b0b0b;font-weight:600}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;padding:48px 0}
+    .hero .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
+    .badge{display:inline-flex;gap:8px;align-items:center;font-size:12px;color:#cbd5e1;background:#0a0f17;border:1px solid var(--border);padding:6px 10px;border-radius:999px}
+    h1{font-size:40px;line-height:1.1;margin:14px 0}
+    p.lead{color:var(--muted);font-size:16px;margin:0 0 18px}
+    .hero .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#0b0f15;color:var(--ink);transition:transform .05s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{background:var(--acc);border-color:transparent;color:#080808;font-weight:600}
+    .btn.ghost{background:transparent}
+
+    /* Pills */
+    .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .pill{font-size:12px;color:#cbd5e1;border:1px solid var(--border);padding:6px 10px;border-radius:999px}
+
+    /* Section */
+    section{padding:26px 0}
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .section-title h2{margin:0;font-size:22px}
+    .section-title .sub{color:var(--muted);font-size:13px}
+
+    /* Projects grid */
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px}
+    .filters button{padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:#101827;color:var(--ink);cursor:pointer}
+    .filters button.active{background:var(--acc);color:#0a0a0a;border-color:transparent}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width:980px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid{grid-template-columns:1fr}}
+
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .thumb{aspect-ratio:16/9;background:#0a0f17;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;color:#94a3b8}
+    .content{padding:16px}
+    .kicker{font-size:12px;color:#a6b5c6}
+    .title{font-size:18px;margin:6px 0 6px}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12px;color:#9fb0c3}
+    .links{display:flex;gap:8px;margin-top:12px}
+
+    /* Case study */
+    details.case{border:1px solid var(--border);border-radius:12px;padding:12px;background:#0f141d}
+    details.case summary{cursor:pointer;font-weight:600}
+    details.case p{color:#c7d1dc}
+
+    /* Footer */
+    footer{padding:28px 0;color:#8b9bb0;border-top:1px solid var(--border)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><span class="dot"></span> ZERO · Gameplay / Tools Programmer</div>
+      <nav>
+        <a class="btn" href="#projects">Projets</a>
+        <a class="btn" href="#articles">Articles</a>
+        <a class="btn" href="#contact">Contact</a>
+        <a class="btn cta" href="assets/CV_ZERO.pdf" download>CV PDF</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="hero" id="about">
+      <div class="card">
+        <span class="badge">Disponible à partir de 2026 · France / Remote</span>
+        <h1>Je conçois des systèmes de gameplay solides, des outils de prod efficaces et des IA lisibles.</h1>
+        <p class="lead">Unity 6 (C#) · Unreal 5 (C++) · ECS/DOTS · Netcode · Outils éditeur · Gameplay/AI · Optimisation. Focus: code propre, profiling et débogage robuste.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Voir les 6 projets clés</a>
+          <a class="btn ghost" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn ghost" href="https://zero-itch.io/" target="_blank" rel="noreferrer">itch.io</a>
+          <a class="btn ghost" href="https://store.steampowered.com/developer/" target="_blank" rel="noreferrer">Steam</a>
+        </div>
+        <div class="pills">
+          <span class="pill">C#</span><span class="pill">C++</span><span class="pill">Unity 6</span><span class="pill">Unreal 5.6</span><span class="pill">Gameplay</span><span class="pill">AI</span><span class="pill">Tools</span><span class="pill">Networking</span>
+        </div>
+      </div>
+      <div class="card">
+        <details class="case" open>
+          <summary>À propos</summary>
+          <p>Étudiant en dernière année, je cherche un poste de <strong>Gameplay/Tools Programmer</strong>. J’aime transformer des intentions de design en systèmes clairs, testables et performants. Je documente chaque projet avec une <em>mini étude de cas</em> (contexte, objectifs, architecture, choix techniques, benchmarks, lessons learned).</p>
+        </details>
+        <div style="height:12px"></div>
+        <details class="case">
+          <summary>Stack & Outils</summary>
+          <p>Unity 6 (Input System, Addressables, DOTS/ECS, Cinemachine), Unreal 5.6 (Gameplay Ability System, Enhanced Input, EQS/Behavior Trees, Subsystems), Git/Git LFS, Perforce, Rider/VS, CMake, Python outils build, Jira, Confluence.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-title">
+        <h2>Projets sélectionnés</h2>
+        <span class="sub">3–6 pièces max, chacune avec une étude de cas concise.</span>
+      </div>
+
+      <div class="filters">
+        <button class="active" data-filter="all">Tous</button>
+        <button data-filter="unity">Unity</button>
+        <button data-filter="unreal">Unreal</button>
+        <button data-filter="gameplay">Gameplay</button>
+        <button data-filter="tools">Tools</button>
+        <button data-filter="ai">AI</button>
+        <button data-filter="netcode">Netcode</button>
+      </div>
+
+      <div class="grid" id="grid">
+        <!-- Project Card Template -->
+        <article class="card" data-tags="unity gameplay ai">
+          <div class="thumb">Vidéo/GIF de 10–20s ici</div>
+          <div class="content">
+            <div class="kicker">Unity 6 · Gameplay AI</div>
+            <h3 class="title">5‑Wheel of Doom – Système roguelite modulaire</h3>
+            <p>Roues RNG paramétriques (loot, modifs gameplay), <em>state machine</em> propre, événements ScriptableObjects, tests unitaires. 120 FPS visés.</p>
+            <div class="meta"><span>Rôle: Solo</span><span>Langage: C#</span><span>Durée: 3 sem.</span></div>
+            <div class="links">
+              <a class="btn" href="#case-1">Étude de cas</a>
+              <a class="btn" href="#" target="_blank">Build jouable</a>
+              <a class="btn" href="#" target="_blank">Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="unreal gameplay netcode">
+          <div class="thumb">Capture courte gameplay</div>
+          <div class="content">
+            <div class="kicker">Unreal 5.6 · GAS/Replication</div>
+            <h3 class="title">TPS Arena – Abilities + Lock‑On + Replication</h3>
+            <p>Enhanced Input, GAS (GameplayAbility/Effect), prédiction client, lock‑on caméra, <em>net dormancy</em> tuning.</p>
+            <div class="meta"><span>Rôle: Gameplay</span><span>Langage: C++</span><span>Durée: 4 sem.</span></div>
+            <div class="links">
+              <a class="btn" href="#case-2">Étude de cas</a>
+              <a class="btn" href="#" target="_blank">Build jouable</a>
+              <a class="btn" href="#" target="_blank">Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="unity tools">
+          <div class="thumb">Screenshot outil éditeur</div>
+          <div class="content">
+            <div class="kicker">Unity 6 · Outil éditeur</div>
+            <h3 class="title">Quest/Dialogue Graph – Outil node‑based</h3>
+            <p>Custom EditorWindow, serialization, validations, export JSON, hooks runtime. Améliore le temps de prod de 30%.</p>
+            <div class="meta"><span>Rôle: Tools</span><span>Langage: C#</span><span>Durée: 2 sem.</span></div>
+            <div class="links">
+              <a class="btn" href="#case-3">Étude de cas</a>
+              <a class="btn" href="#" target="_blank">Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="unreal ai">
+          <div class="thumb">Debug EQS/BT</div>
+          <div class="content">
+            <div class="kicker">Unreal 5.6 · AI</div>
+            <h3 class="title">EQS Bots – Shooter & Contact</h3>
+            <p>Behavior Trees, EQS, avoidance simple, perception <code>AIPerception</code>, debug visuel, tests scénarios.</p>
+            <div class="meta"><span>Rôle: AI</span><span>Langage: C++/BT</span><span>Durée: 1 sem.</span></div>
+            <div class="links">
+              <a class="btn" href="#case-4">Étude de cas</a>
+              <a class="btn" href="#" target="_blank">Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="unity netcode tools">
+          <div class="thumb">Profiler/Graphs</div>
+          <div class="content">
+            <div class="kicker">Unity 6 · Netcode</div>
+            <h3 class="title">NetGraph – HUD réseau + replay</h3>
+            <p>Affichage RTT/jitter/perte, capture binaire, lecture différée pour débogage réseau.</p>
+            <div class="meta"><span>Rôle: Tools</span><span>Langage: C#</span></div>
+            <div class="links">
+              <a class="btn" href="#case-5">Étude de cas</a>
+              <a class="btn" href="#" target="_blank">Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="unreal tools">
+          <div class="thumb">Capture éditeur Unreal</div>
+          <div class="content">
+            <div class="kicker">Unreal 5.6 · Tools</div>
+            <h3 class="title">Cookinator – Build/Packaging helper</h3>
+            <p>Utilitaire C++/Python pour automatiser <code>RunUAT</code>, versions, changelog, uploads itch/Steam.</p>
+            <div class="meta"><span>Rôle: Tools</span><span>Langage: C++/Py</span></div>
+            <div class="links">
+              <a class="btn" href="#case-6">Étude de cas</a>
+              <a class="btn" href="#" target="_blank">Repo</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Case study anchors -->
+      <section id="case-1">
+        <div class="section-title"><h2>Étude de cas · 5‑Wheel of Doom (Unity)</h2><span class="sub">Problème → Solution → Résultat → Code.</span></div>
+        <details class="case" open>
+          <summary>Résumé</summary>
+          <p>Objectif: système RNG modulaire avec 5 roues influençant loot, stats, modifs de gameplay. Contraintes: débogable, testable, extensible. Solution: architecture via <em>EventChannels</em> (SO), StateMachine générique, <code>Addressables</code> pour tables, tests NUnit. Résultat: +60% vitesse d’itération, 0 GC spikes >1ms en jeu.</p>
+        </details>
+        <div style="height:10px"></div>
+        <details class="case">
+          <summary>Architecture</summary>
+          <p>Diagrammes: modules (SpinController, OutcomeResolver, EffectApplier), interfaces (<code>IOutcome</code>, <code>IEffect</code>), séquence d’événements, profils d’équilibrage.</p>
+        </details>
+        <div style="height:10px"></div>
+        <details class="case">
+          <summary>Snippets clés</summary>
+          <p>Liens vers gists/répo avec fichiers complets (pas d’extraits partiels).</p>
+        </details>
+      </section>
+    </section>
+
+    <section id="articles">
+      <div class="section-title">
+        <h2>Articles & Talks</h2>
+        <span class="sub">Courts billets techniques qui montrent ta manière de raisonner.</span>
+      </div>
+      <div class="grid">
+        <article class="card"><div class="content"><div class="kicker">Postmortem</div><h3 class="title">Optimiser un State Machine de gameplay sans alourdir l’archi</h3><p>Profiling, allocations, tables de transitions, tests.</p><div class="links"><a class="btn" href="#">Lire</a></div></div></article>
+        <article class="card"><div class="content"><div class="kicker">Réseau</div><h3 class="title">Prédiction client & correction côté serveur (UE5)</h3><p>Cas concrets, pièges et métriques.</p><div class="links"><a class="btn" href="#">Lire</a></div></div></article>
+        <article class="card"><div class="content"><div class="kicker">Outils</div><h3 class="title">Écrire un outil éditeur qui fait gagner 30% de temps</h3><p>Specs, UX, validations, export.</p><div class="links"><a class="btn" href="#">Lire</a></div></div></article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title"><h2>Contact</h2><span class="sub">Toujours partant pour un call technique + test code.</span></div>
+      <div class="card" style="padding:16px">
+        <p>Email: <a href="mailto:contact@zero.dev">contact@zero.dev</a> · LinkedIn · GitHub · itch.io · Steam</p>
+        <p>CV: <a href="assets/CV_ZERO.pdf" download>Télécharger (PDF)</a></p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container" style="padding:0">
+        © <span id="y"></span> ZERO — Portfolio. Made with HTML/CSS.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // filters
+    const buttons=[...document.querySelectorAll('.filters button')];
+    const cards=[...document.querySelectorAll('#grid .card')];
+    buttons.forEach(b=>b.addEventListener('click',()=>{
+      buttons.forEach(x=>x.classList.remove('active')); b.classList.add('active');
+      const f=b.dataset.filter; cards.forEach(c=>{
+        if(f==='all'){c.style.display='block';return}
+        const tags=c.dataset.tags.split(' '); c.style.display=tags.includes(f)?'block':'none';
+      });
+    }));
+  </script>
+</body>
+</html>
